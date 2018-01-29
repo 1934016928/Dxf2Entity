@@ -16,8 +16,11 @@ public class RvlObject {
 
     public void rvlEntity(List<DxfAttribute> dxf) {
         List<DxfAttribute> attr = new ArrayList<>();
-        for (DxfAttribute dxfAttribute : dxf) {
-
+        boolean isRecord = false;
+        for (DxfAttribute attribute : dxf) {
+            if (attribute.getGroupCode() == 0) {
+//                if (attribute.getGroupValue())
+            }
         }
     }
 }
