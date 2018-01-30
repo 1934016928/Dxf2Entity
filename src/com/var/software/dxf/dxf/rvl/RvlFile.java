@@ -1,5 +1,6 @@
 package com.var.software.dxf.dxf.rvl;
 
+import com.var.software.dxf.dxf.DxfLayer;
 import com.var.software.dxf.dxf.DxfReader;
 import com.var.software.dxf.dxf.entities.DxfAttribute;
 
@@ -17,6 +18,12 @@ public class RvlFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public DxfLayer start() {
+        RvlObject object = new RvlObject();
+        object.rvlEntity(dxf);
+        return object.getLayer();
     }
 
     public List<DxfAttribute> getDxf() {

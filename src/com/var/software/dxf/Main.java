@@ -2,8 +2,8 @@ package com.var.software.dxf;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.var.software.dxf.dxf.DxfLayer;
 import com.var.software.dxf.dxf.rvl.RvlFile;
-import com.var.software.dxf.dxf.rvl.RvlObject;
 import com.var.software.dxf.jvm.RuntimeThread;
 
 import java.io.File;
@@ -19,10 +19,9 @@ public class Main {
         PrintWriter writer = new PrintWriter(new FileWriter(new File("/home/var_rain/files/dxf.json")));
         long time = System.currentTimeMillis();
         RvlFile rvl = new RvlFile("/home/var_rain/Java/dxf/assets/test.dxf");
-        RvlObject object = new RvlObject();
-        object.rvlEntity(rvl.getDxf());
+        DxfLayer layer = rvl.start();
         Gson json = new GsonBuilder().setPrettyPrinting().create();
-        writer.write(json.toJson(object.getLayer().getLayers()));
+        writer.write(json.toJson(layer.getLayers()));
         writer.flush();
         writer.close();
         System.out.println("use time: " + (System.currentTimeMillis() - time) + "ms");
