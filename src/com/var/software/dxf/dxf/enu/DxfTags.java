@@ -8,31 +8,15 @@ public enum DxfTags {
     HEADER,
     BLOCKS,
     CLASSES,
-    /*
-    SECTION
-    ENDSEC
-            TABLE
-    VPORT
-            ENDTAB
-    LTYPE
-            LAYER
-    STYLE
-            APPID
-    DIMSTYLE
-            BLOCK_RECORD
-    BLOCK
-            ENDBLK
-    LWPOLYLINE
-            LINE
-    ARC
-            CIRCLE
-    HATCH
-            INSERT
-    ELLIPSE
-            SOLID
-    MTEXT
-            POINT
-    TEXT
-            DICTIONARY
-    EOF*/
+    TABLE,
+    VPORT,
+    ENDTAB,
+    LTYPE,
+    LAYER,
+    STYLE,
+    APPID,
+    DIMSTYLE,
+    BLOCK_RECORD,
+    DICTIONARY,
+    EOF
 }

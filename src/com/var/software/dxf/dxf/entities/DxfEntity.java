@@ -2,15 +2,15 @@ package com.var.software.dxf.dxf.entities;
 
 public class DxfEntity {
 
-    private String entType;
+    private String type;
     private String layerName;
 
-    public String getEntType() {
-        return entType;
+    public String getType() {
+        return type;
     }
 
-    public void setEntType(String entType) {
-        this.entType = entType;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getLayerName() {

@@ -9,25 +9,33 @@ import java.util.Map;
 
 public class DxfLayer {
 
-    private Map<String, List<DxfEntity>> layers;
+    private Map<String, Map<String, List<DxfEntity>>> layers;
 
     public DxfLayer() {
         layers = new HashMap<>();
     }
 
-    public Map<String, List<DxfEntity>> getLayers() {
+    public Map<String, Map<String, List<DxfEntity>>> getLayers() {
         return layers;
     }
 
-    public List<DxfEntity> getLayer(String key) {
+    public Map<String, List<DxfEntity>> getLayer(String key) {
         return layers.get(key);
     }
 
     public void addEntity(DxfEntity entity) {
         if (!layers.containsKey(entity.getLayerName())) {
-            layers.put(entity.getLayerName(), new ArrayList<>());
+            Map<String, List<DxfEntity>> map = new HashMap<>();
+            map.put(entity.getType(), new ArrayList<>());
+            layers.put(entity.getLayerName(), map);
+            layers.get(entity.getLayerName()).get(entity.getType()).add(entity);
         } else {
-            getLayer(entity.getLayerName()).add(entity);
+            if (!layers.get(entity.getLayerName()).containsKey(entity.getType())) {
+                layers.get(entity.getLayerName()).put(entity.getType(), new ArrayList<>());
+                layers.get(entity.getLayerName()).get(entity.getType()).add(entity);
+            } else {
+                layers.get(entity.getLayerName()).get(entity.getType()).add(entity);
+            }
         }
     }
 }
