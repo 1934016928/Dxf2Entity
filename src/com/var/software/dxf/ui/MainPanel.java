@@ -7,6 +7,8 @@ import com.var.software.dxf.dxf.enu.DxfType;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.geom.Line2D;
 import java.awt.image.VolatileImage;
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ import java.util.Map;
  * Create User: var_rain.
  * Class Usage: Java draw view.
  */
-public class MainPanel extends JPanel {
+public class MainPanel extends JPanel implements ComponentListener {
 
     private DxfLayer layer;
     private List<String> layerNames;
@@ -40,6 +42,7 @@ public class MainPanel extends JPanel {
     public MainPanel() {
         layerNames = new ArrayList<>();
         this.setDoubleBuffered(true);
+        this.addComponentListener(this);
     }
 
     /**
@@ -50,12 +53,6 @@ public class MainPanel extends JPanel {
     public void setLayer(DxfLayer layer, MainWindow window) {
         this.layer = layer;
         this.window = window;
-    }
-
-    @Override
-    public void resize(int width, int height) {
-        super.resize(width, height);
-        image = createVolatileImage(width, height);
     }
 
     /**
@@ -228,5 +225,25 @@ public class MainPanel extends JPanel {
 
     public void setLineY(int lineY) {
         this.lineY = lineY;
+    }
+
+    @Override
+    public void componentResized(ComponentEvent e) {
+        image = createVolatileImage(this.getWidth(), this.getHeight());
+    }
+
+    @Override
+    public void componentMoved(ComponentEvent e) {
+
+    }
+
+    @Override
+    public void componentShown(ComponentEvent e) {
+
+    }
+
+    @Override
+    public void componentHidden(ComponentEvent e) {
+
     }
 }
