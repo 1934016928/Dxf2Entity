@@ -4,6 +4,11 @@ import com.var.software.dxf.dxf.enu.DxfType;
 
 import java.util.List;
 
+/**
+ * Create Time: 2018/01/31.
+ * Create User: var_rain.
+ * Class Usage: Dxf LwPolyLine object.
+ */
 public class DxfLwpolyLine extends DxfEntity {
 
     private List<DxfPoint> points;

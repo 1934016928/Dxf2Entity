@@ -2,6 +2,11 @@ package com.var.software.dxf.dxf.entities;
 
 import com.var.software.dxf.dxf.enu.DxfType;
 
+/**
+ * Create Time: 2018/01/31.
+ * Create User: var_rain.
+ * Class Usage: Dxf MText object.
+ */
 public class DxfMtext extends DxfEntity {
 
     private DxfPoint point;

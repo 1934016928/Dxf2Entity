@@ -10,9 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Read dxf file to java object.
+ * Create Time: 2018/01/31.
+ * Create User: var_rain.
+ * Class Usage: Read dxf file to object list.
  */
-
 public class DxfReader {
 
     /**

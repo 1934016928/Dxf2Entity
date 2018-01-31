@@ -8,6 +8,11 @@ import com.var.software.dxf.dxf.enu.DxfType;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Create Time: 2018/01/31.
+ * Create User: var_rain.
+ * Class Usage: Resolve entities with dxf object list.
+ */
 public class RvlObject {
 
     private DxfLayer layer;
@@ -58,6 +63,8 @@ public class RvlObject {
                 attr.add(attribute);
             }
         }
+        attr.clear();
+        dxf.clear();
     }
 
     /**
@@ -279,11 +286,12 @@ public class RvlObject {
     private void rvlLwplyline(List<DxfAttribute> dxf) {
         DxfLwpolyLine line = new DxfLwpolyLine();
         List<DxfPoint> points = new ArrayList<>();
-        DxfPoint point = new DxfPoint();
+        DxfPoint point = null;
         for (DxfAttribute attribute : dxf) {
             if (attribute.getGroupCode() == 8) {
                 line.setLayerName(attribute.getGroupValue());
             } else if (attribute.getGroupCode() == 10) {
+                point = new DxfPoint();
                 point.setX(Double.parseDouble(attribute.getGroupValue()));
             } else if (attribute.getGroupCode() == 20) {
                 point.setY(Double.parseDouble(attribute.getGroupValue()));

@@ -1,5 +1,10 @@
 package com.var.software.dxf.dxf.entities;
 
+/**
+ * Create Time: 2018/01/31.
+ * Create User: var_rain.
+ * Class Usage: Dxf GroupCode & GroupValue entity object.
+ */
 public class DxfAttribute {
 
     private int groupCode;

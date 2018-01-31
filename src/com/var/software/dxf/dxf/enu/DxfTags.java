@@ -1,5 +1,10 @@
 package com.var.software.dxf.dxf.enu;
 
+/**
+ * Create Time: 2018/01/31.
+ * Create User: var_rain.
+ * Class Usage: Dxf file part split tag.
+ */
 public enum DxfTags {
     SECTION,
     ENDSEC,
